@@ -17,14 +17,15 @@ public class AppTest {
 		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
 		
 		Student std2 = new Student();
-//		std2.setStdNo("S0006");
-//		std2.setStdName("김향단");
-//		std2.setPhone("010-0000-3535");
-//		std2.setBldType("O");
-		
-		std2.setStdNo("S0006");
+//		std2.setStdNo("S0005");
+//		std2.setStdName("임꺽정");
+//		std2.setPhone("010-5555-9595");
+//		std2.setBldType("AB");
+//		
+		std2.setStdNo("S0004");
 		
 //		sqlSession.update("co.yedam.mapper.StudentMapper.updateStudent", std2);
+//		mapper.insertStudent(std2);
 //		mapper.updateStudent(std2);
 		mapper.deleteStudent(std2);
 		sqlSession.commit();
