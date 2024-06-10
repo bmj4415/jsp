@@ -16,7 +16,7 @@ public class AppTest {
 		//interface와 구현객체의 관계
 		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
 		
-		
+		//pull 연습용 주석
 		Student std2 = new Student();
 		std2.setStdNo("S0006");
 		std2.setStdName("김향단");
