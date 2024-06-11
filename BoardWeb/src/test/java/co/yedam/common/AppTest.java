@@ -16,15 +16,18 @@ public class AppTest {
 		//interface와 구현객체의 관계
 		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
 		
-		//pull 연습용 주석
 		Student std2 = new Student();
-		std2.setStdNo("S0006");
-		std2.setStdName("김향단");
-		std2.setPhone("010-0000-3535");
-		std2.setBldType("O");
+//		std2.setStdNo("S0005");
+//		std2.setStdName("임꺽정");
+//		std2.setPhone("010-5555-9595");
+//		std2.setBldType("AB");
+//		
+		std2.setStdNo("S0004");
 		
 //		sqlSession.update("co.yedam.mapper.StudentMapper.updateStudent", std2);
-		mapper.updateStudent(std2);
+//		mapper.insertStudent(std2);
+//		mapper.updateStudent(std2);
+		mapper.deleteStudent(std2);
 		sqlSession.commit();
 		
 //		List<Student> list = sqlSession.selectList("co.yedam.mapper.StudentMapper.selectBlog");		
