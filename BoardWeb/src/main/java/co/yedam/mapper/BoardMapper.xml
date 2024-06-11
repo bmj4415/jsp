@@ -2,13 +2,32 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
 <mapper namespace="co.yedam.mapper.BoardMapper">
 
-  <select id="boardList" resultType="co.yedam.vo.BoardVO"> <!-- selectBlog : 메소드, resultType : 반환되는 타입 -->
-    select * 
-    from board_tbl
-    order by board_no
-  </select>
+	<select id="boardList" resultType="co.yedam.vo.BoardVO"> <!-- selectBlog : 메소드, resultType : 반환되는 타입 -->
+		select *
+		from board_tbl
+		order by board_no
+	</select>
 
+	<insert id="insertBoard" parameterType="co.yedam.vo.BoardVO">
+		insert into board_tbl (board_no, title, content, writer)
+		values(#{boardNo}, #{title}, #{content}, #{writer})
+	</insert>
+	
+	<update id="updateBoard" parameterType="co.yedam.vo.BoardVO">
+		update board_tbl set writer = (#{writer}) where board_no = (#{boardNo})
+	</update>
+
+	<delete id="deleteBoard" parameterType="int">
+		delete board_tbl where board_no = (#{boardNo})
+	</delete>
+	
+	<select id="selectBoard" parameterType="String" resultType="co.yedam.vo.BoardVO">
+		select *
+		from board_tbl
+		where board_no = (#{boardNo})
+	</select>
+	
 </mapper>

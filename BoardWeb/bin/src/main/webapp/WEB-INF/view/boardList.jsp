@@ -5,8 +5,8 @@
 <!-- "boardList"에 담긴 값을 읽어서 반복처리 -->
 <%@include file="../public/header.jsp"%>
 <%
-// request는 jsp의 내장객체
-List<BoardVO> list = (List<BoardVO>) request.getAttribute("boardList");
+	// request는 jsp의 내장객체
+	List<BoardVO> list = (List<BoardVO>) request.getAttribute("boardList");
 %>
 <h3>게시글 목록</h3>
 <table class="table">
@@ -19,25 +19,15 @@ List<BoardVO> list = (List<BoardVO>) request.getAttribute("boardList");
 		</tr>
 	</thead>
 	<tbody>
-		<%
-		for (BoardVO vo : list) {
-		%>
+		<%for (BoardVO vo : list) {%>
 		<tr>
-			<td><%=vo.getBoardNo()%></td>
-			<td><%=vo.getTitle()%></td>
-			<td><%=vo.getWriter()%></td>
-			<td><%=vo.getClickCnt()%></td>
+			<td><%=vo.getBoardNo() %></td>
+			<td><%=vo.getTitle() %></td>
+			<td><%=vo.getWriter() %></td>
+			<td><%=vo.getClickCnt() %></td>
 		</tr>
-		<%
-		}
-		%>
+		<%} %>
 	</tbody>
-	<tfoot>
-		<tr>
-			<td colspan="2" align="center"><input type="submit"
-				class="btn btn-success" value="글쓰기"></td>
-		</tr>
-	</tfoot>
 </table>
 
 <%@include file="../public/footer.jsp"%>

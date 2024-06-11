@@ -38,5 +38,4 @@ if (msg != null) {
 		</tr>
 	</table>
 </form>
-
 <%@include file="../public/footer.jsp"%>

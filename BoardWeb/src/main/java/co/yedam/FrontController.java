@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.yedam.common.Control;
+import co.yedam.web.AddForm;
 import co.yedam.web.AddStudent;
 import co.yedam.web.BoardList;
 import co.yedam.web.MainControl;
@@ -39,7 +40,7 @@ public class FrontController extends HttpServlet { // HttpServlet을 상속받�
 			
 			//Board 게시판 목록
 			map.put("/boardList.do", new BoardList());
-			
+			map.put("/addForm.do", new AddForm());
 		}
 
 	@Override //main.do가 실행되면 서비스 메소드가 실행됨
