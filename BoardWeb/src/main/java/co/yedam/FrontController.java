@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import co.yedam.common.Control;
 import co.yedam.web.AddForm;
 import co.yedam.web.AddStudent;
+import co.yedam.web.BoardForm;
 import co.yedam.web.BoardList;
+import co.yedam.web.Getboard;
 import co.yedam.web.MainControl;
 import co.yedam.web.ProductContrl;
 import co.yedam.web.StudentForm;
@@ -33,15 +35,27 @@ public class FrontController extends HttpServlet { // HttpServlet을 상속받�
 		public void init(ServletConfig config) throws ServletException {
 			map.put("/main.do", new MainControl()); //요쳥하는 페이지에 따라 달라짐
 			map.put("/product.do",new ProductContrl());
-			//map.put("/board.do", "게시판페이지 입니다");
+			
 			//학생등록화면(studentForm.do)
 			map.put("/studentForm.do", new StudentForm()); //실제 등록하는게 아니라 등록화면만 보여주는 메소
 			map.put("/addStudent.do", new AddStudent()); //실제 db에 등록하는 메소드
 			
 			//Board 게시판 목록
 			map.put("/boardList.do", new BoardList());
-			map.put("/addForm.do", new AddForm());
+			
+			//상세화면
+			map.put("/getBoard.do", new Getboard());
+			
+			//연습 => 게시글 등록
+			map.put("/addForm.do", new BoardForm());
+			map.put("/addBoard.do", new AddForm());
+			
+			
 		}
+	
+	
+	
+	
 
 	@Override //main.do가 실행되면 서비스 메소드가 실행됨
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
