@@ -43,7 +43,7 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public boolean removeBoard(int bno) {
-		return false;
+		return mapper.deleteBoard(bno) == 1;
 	}
 	
 	

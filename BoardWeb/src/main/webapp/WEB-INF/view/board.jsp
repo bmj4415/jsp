@@ -7,6 +7,7 @@
 
 <%
 String paging = (String) request.getAttribute("page");
+
 BoardVO board = (BoardVO) request.getAttribute("board"); //BoardVO로 캐스팅
 SimpleDateFormat sdf  = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분 ss초");
 String yyyymmdd = sdf.format(board.getCreationDate());
@@ -38,5 +39,6 @@ String yyyymmdd = sdf.format(board.getCreationDate());
 	</tr>
 </table>
 <a href="boardList.do?page=<%=paging %>">목록으로 이동하기</a>
+<a href = "removeForm.do?=<%=board.getBoardNo()%>">삭제하기</a>
 
 <%@include file="../public/footer.jsp" %>

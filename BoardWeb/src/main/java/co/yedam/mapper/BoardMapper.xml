@@ -17,7 +17,7 @@
 		from (select rownum rn, a.*
 		from (select *
 		from board_tbl
-		order by  board_no desc) a
+		order by board_no desc) a
 	  <![CDATA[
 	  where rownum <= (#{page} * 5 )) b
 	  ]]>
@@ -42,9 +42,16 @@
 		where board_no = #{bno}
 	</select>
 	<insert id="insertBoard" parameterType="co.yedam.vo.BoardVO">
-		insert into board_tbl (board_no, title, content, writer)
-		values(board_seq.nextval, #{title}, #{content}, #{writer})
+		insert into board_tbl
+		(board_no, title, content, writer)
+		values(board_seq.nextval, #{title},
+		#{content}, #{writer})
 	</insert>
+
+	<delete id="deleteBoard" parameterType="co.yedam.vo.BoardVO">
+		delete board_tbl
+		where board_no = #{bno};
+	</delete>
 
 
 

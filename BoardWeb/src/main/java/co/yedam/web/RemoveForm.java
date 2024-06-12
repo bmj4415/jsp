@@ -15,13 +15,11 @@ import co.yedam.service.BoardService;
 import co.yedam.service.BoardServiceImpl;
 import co.yedam.vo.BoardVO;
 
-public class AddForm implements Control {
+public class RemoveForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String title = req.getParameter("title");
-		String writer = req.getParameter("writer");
-		String content = req.getParameter("content");
+		String boardNo = req.getParameter("bno");
 		
 		SqlSession sqlSession = DataSource.getInstance().openSession();
 		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
@@ -29,16 +27,15 @@ public class AddForm implements Control {
 		BoardService bvc = new BoardServiceImpl();
 		
 		BoardVO vo = new BoardVO();
-		vo.setTitle(title);
-		vo.setWriter(writer);
-		vo.setContent(content);
-		
-		if(bvc.addBoard(vo)) {
-			System.out.println("정상등록");
+		vo.setBoardNo(Integer.parseInt(boardNo));
+
+		if(bvc.removeBoard(Integer.parseInt(boardNo))) {
+			System.out.println("삭제완료");
 			resp.sendRedirect("boardList.do");
 		} else {
-			System.out.println("등록실패");
-			req.getRequestDispatcher("WEB-INF/view/boardForm.jsp").forward(req, resp);
+			System.out.println("삭제실패");
+			req.getRequestDispatcher("WEB-INF/view/removeBoardForm.jsp").forward(req, resp);
+			
 		}
 	}
 

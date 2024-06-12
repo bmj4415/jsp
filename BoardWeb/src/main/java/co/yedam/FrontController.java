@@ -18,7 +18,9 @@ import co.yedam.web.BoardList;
 import co.yedam.web.Getboard;
 import co.yedam.web.MainControl;
 import co.yedam.web.ProductContrl;
+import co.yedam.web.RemoveForm;
 import co.yedam.web.StudentForm;
+import co.yedam.web.removeBoardForm;
 
 //front controller => 요청url(*.do(메인.do) => 실행컨트롤 매칭
 // main.do => 프론트 컨트롤에서 /WEB-INF/public/main.jsp를 열어줌
@@ -50,7 +52,9 @@ public class FrontController extends HttpServlet { // HttpServlet을 상속받�
 			map.put("/addForm.do", new BoardForm());
 			map.put("/addBoard.do", new AddForm());
 			
-			
+			//게시글 삭제
+			map.put("/removeForm.do", new removeBoardForm());
+			map.put("/removeBoard.do", new RemoveForm());
 		}
 	
 	
