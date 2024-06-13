@@ -1,12 +1,10 @@
-<%@page import="co.yedam.vo.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@include file="../public/header.jsp"%>
-<%
-BoardVO board = (BoardVO) request.getAttribute("board");
-String loginId = (String) session.getAttribute("logId");
-%>
-<% if (logId != null) { %>
+<jsp:forward page="../public/header.jsp">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<c:choose>
+<c:when test="${!empty logId}">
 <h3>게시글 등록</h3>
 <form action="addBoard.do">
 	<table class="table table-sm">
@@ -16,7 +14,7 @@ String loginId = (String) session.getAttribute("logId");
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td><%=logId %></td>
+			<td><c:out value="${logId }"/></td>
 		</tr>
 		<tr>
 			<th>내용</th>
@@ -28,7 +26,8 @@ String loginId = (String) session.getAttribute("logId");
 		</tr>
 	</table>
 </form>
-<% } else { %>
+</c:when>
+<c:otherwise>
 <h3>로그인 화면(loginForm.jsp)</h3>
 <form action="login.do">
 <table class="table">
@@ -45,6 +44,7 @@ String loginId = (String) session.getAttribute("logId");
 	</tr>
 </table>
 </form>
-<%} %>
+</c:otherwise>
+</c:choose>
 
-<%@include file="../public/footer.jsp"%>
+<jsp:forward page="../public/header.jsp">
