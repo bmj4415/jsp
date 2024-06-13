@@ -2,7 +2,14 @@ package co.yedam.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import co.yedam.vo.BoardVO;
+
+/*
+ * 
+ */
+
 
 public interface BoardMapper {
 	List<BoardVO> boardList(); // 전체목록 보기
@@ -12,4 +19,11 @@ public interface BoardMapper {
 	int updateBoard(BoardVO bvo);
 	int deleteBoard(int bno);
 	BoardVO selectBoard(int bno);//단건조회
+	
+	//회원 아이디, 회원 비밀번호
+	
+	int selectMember(@Param("id") String id, @Param("pw") String pw); //갑이 여러개일때
+	
+	
+	
 }

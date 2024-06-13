@@ -16,6 +16,9 @@ import co.yedam.web.AddStudent;
 import co.yedam.web.BoardForm;
 import co.yedam.web.BoardList;
 import co.yedam.web.Getboard;
+import co.yedam.web.LogOutControl;
+import co.yedam.web.LoginControl;
+import co.yedam.web.LoginForm;
 import co.yedam.web.MainControl;
 import co.yedam.web.ModifyBoard;
 import co.yedam.web.ModifyForm;
@@ -58,12 +61,18 @@ public class FrontController extends HttpServlet { // HttpServlet을 상속받�
 			map.put("/removeForm.do", new RemoveForm());
 			map.put("/removeBoard.do", new removeBoard());
 			
-			//수정화면
+			//수정 화면
 			map.put("/modifyForm.do", new ModifyForm());
 			map.put("/modifyBoard.do", new ModifyBoard());
-		}
-	
-	
+			
+			//로그인 화면
+			map.put("/loginForm.do", new LoginForm());
+			//로그인 기능
+			map.put("/login.do", new LoginControl());
+			//로그아웃 기능
+			map.put("/logout.do", new LogOutControl());
+			
+		}//
 	
 	
 

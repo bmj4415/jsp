@@ -14,17 +14,31 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
+    <%
+    String logId = (String) session.getAttribute("logId"); //session에 logId 속성을 부여
+    %>
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
-                <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
+            <%if (logId == null) { //로그인하기 전이면 %> 
+                <div class="sidebar-heading border-bottom bg-light">Start Bootstrap(Guest)</div>
+                <% } else { %>
+                <div class="sidebar-heading border-bottom bg-light">Start Bootstrap(<%=logId %>)</div>
+                <% } %>
                 <div class="list-group list-group-flush">
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="main.do">메인페이지</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="studentForm.do">학생정보 등록</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="boardList.do">게시글 목록</a>
+                    
+                    <% if (logId != null) { %>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="addForm.do">게시글 등록</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
+                    <% } else { %>
+                    <% } %>
+                    <% if (logId == null) { %>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="loginForm.do">로그인</a>
+                    <% } else { %>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="logout.do">로그아웃</a>
+                    <% } %>
                 </div>
             </div>
             <!-- Page content wrapper-->
