@@ -18,7 +18,7 @@ BoardVO board = (BoardVO) request.getAttribute("board");
 		</tr>
 		<tr>
 			<th>내용</th>
-			<td col = "80"><input type="text" name="content"></td>
+			<td><textarea cols="80" rows="20" class="form-control"></textarea></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="right"><input type="submit"

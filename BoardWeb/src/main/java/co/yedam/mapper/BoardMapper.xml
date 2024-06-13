@@ -50,9 +50,15 @@
 
 	<delete id="deleteBoard" parameterType="co.yedam.vo.BoardVO">
 		delete board_tbl
-		where board_no = #{bno};
+		where board_no = #{boardNo}
 	</delete>
 
+	<update id="updateBoard" parameterType="co.yedam.vo.BoardVO">
+		update board_tbl
+		set title=#{title},
+		    content=#{content}
+		where board_no = #{boardNo}
+	</update>
 
 
 </mapper>
