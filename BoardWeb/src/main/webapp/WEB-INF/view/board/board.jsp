@@ -4,11 +4,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>	
 
-<jsp:include page="../public/header.jsp" />
+<h3>상세화면</h3>
+<form name="myFrm" action = "removeForm.do">
+<input type="hidden" value="${board.boardNo}" name="bno" >
+<input type="hidden" value="${searchCondition }" name="searchCondition">
+<input type="hidden" value="${keyword }" name="keyword">
 
-<h3>수정화면</h3>
-<form name="myFrm" action = removeForm.do>
-<input type="hidden" name="bno" value="${board.boardNo}">
 <table class="table table-sm">
 	<tr>
 		<th class="col-sm-1">글번호 :</th>
@@ -22,7 +23,7 @@
 	</tr>
 	<tr>
 		<th>내용 :</th>
-		<td><textarea class="form-control" readonly value="${board.content}"></textarea></td>
+		<td><textarea class="form-control" readonly>${board.content}</textarea></td>
 	</tr>
 	<tr>
 		<th>작성자 :</th>
@@ -44,6 +45,7 @@
 			<button type="button" disabled class="btn btn-warning">수정</button>
 		</c:otherwise>
 		</c:choose>
+			<a href="boardList.do?page=${page }" class = "btn btn-success">목록으로 이동하기</a>
 		</td>
 	</tr>
 </table>
@@ -58,6 +60,4 @@
 	});
 
 </script>
-<a href="boardList.do?page=${page }" class = "btn btn-success">목록으로 이동하기</a>
 
-<jsp:include page="../public/footer.jsp" />

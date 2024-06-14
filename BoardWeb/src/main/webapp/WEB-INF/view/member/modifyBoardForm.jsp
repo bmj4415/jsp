@@ -2,10 +2,12 @@
 	pageEncoding="UTF-8"%>
 <!-- modifyBoardForm.jsp -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:include page="../public/header.jsp" />
 
 <h3>수정화면</h3>
+
 <form action="modifyBoard.do">
+<input type="hidden" value="${searchCondition }" name="searchCondition">
+<input type="hidden" value="${keyword }" name="keyword">
 	<table class="table">
 		<tr>
 			<th>글번호</th>
@@ -37,4 +39,3 @@
 		</tr>
 	</table>
 </form>
-<jsp:include page="../public/footer.jsp" />

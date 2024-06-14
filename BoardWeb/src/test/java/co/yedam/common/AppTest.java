@@ -13,10 +13,12 @@ import co.yedam.vo.BoardVO;
 public class AppTest {
 	public static void main(String[] args) {
 		
-		BoardService svc = new BoardServiceImpl();
+		SqlSession sqlSession = DataSource.getInstance().openSession(true); // openSession에 true값 : 커밋 기능을 따로 넣지 않아도 자동커밋하겠다는 뜻
+		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
 		
-		System.out.println(svc.getBoard(100));
+		SearchVO search = new SearchVO(1, "W", "01");
 		
+		mapper.boardListPaging(search).forEach(bvo -> System.out.println(bvo));
 
 		
 		
