@@ -94,7 +94,11 @@
 		where user_id = #{id}
 		and   user_pw = #{pw}
 	</select>
-
+	
+	<insert id="insertMember" parameterType="int">
+		 insert into member_tbl (user_id, user_pw, user_name)
+		 values(#{id}, #{pw}, #{name})
+	</insert>
 
 </mapper>
 

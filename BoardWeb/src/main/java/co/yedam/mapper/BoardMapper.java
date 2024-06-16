@@ -19,7 +19,7 @@ public interface BoardMapper {
 	//회원 아이디, 회원 비밀번호
 	
 	int selectMember(@Param("id") String id, @Param("pw") String pw); //값이 여러개일때
-	
+	int insertMember(@Param("id") String id, @Param("pw") String pw, @Param("name") String name);
 	
 	
 }

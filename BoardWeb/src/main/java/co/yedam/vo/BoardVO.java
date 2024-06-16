@@ -1,15 +1,10 @@
 package co.yedam.vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 import lombok.Data;
 
-/*
- * 목록, 등록, 수정, 삭제, 단건조회
- */
-
 @Data
-
 public class BoardVO {
 	private int boardNo;
 	private String title;
@@ -18,3 +13,6 @@ public class BoardVO {
 	private int clickCnt;
 	private Date creationDate;
 }
+/*
+ * 목록, 등록, 수정, 삭제, 단건조회
+ */

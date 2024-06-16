@@ -1,11 +1,10 @@
 package co.yedam.vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 import lombok.Data;
 
 @Data
-
 public class Student {
 	private String stdNo; 
 	private String stdName;	
