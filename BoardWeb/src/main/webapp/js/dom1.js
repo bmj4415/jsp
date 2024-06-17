@@ -16,8 +16,8 @@ document.getElementById('modBtn').addEventListener('click', modMemberFnc);
 document.getElementById('delBtn').addEventListener('click', removeMemberFnc);
 
 //힌트
-document.querySelector('thead input[type="checkbox"]').addEventListener('change', allCheckFnc);
-//this => 1. 이벤트 안에서 사용될 경우(이벤트 대상을 가르킴) 2. 함수(window) 3. 객체(객체자신)
+document.querySelector('thead input[type="checkbox"]').addEventListener('change', allCheckFnc); //체크박스의 값이 change 될 때 allCheckFnc 함수 실행
+//this => 1. 이벤트 안에서 사용될 경우(이벤트 대상을 가르킴) 2. 함수(호출한 객체) 3. 객체(객체자신) 4. 윈도우
 const obj = {
 	name: '홍길동',
 	age: 20,
@@ -30,7 +30,7 @@ function allCheckFnc() {
 	//tbody의 하위에 있는 모든 input[type]="checkbox"의 속성을 변경
 	console.log(this.checked); //this : input[type]="checkbox"
 	//let checkVal = this.checked;//this의 값이 바뀌기 때문에 this : input[type]="checkbox"일 때의 this값을 checkVal에 저장
-	document.querySelectorAll('#memberList tr').forEach(item => {item.children[5].children[0].checked = this.checked}); //여기서의 this : window
+	document.querySelectorAll('#memberList tr').forEach(item => {item.children[5].children[0].checked = this.checked}); //this : thead의 checkbox
 	//document.querySelectorAll('#memberList tr').forEach(function test(item) {item.children[5].children[0].checked = this.checked}); //여기서의 this : window
 	//tbody의 아이디값(#memberList)이  tr인 것들을 모두 가져옴.. item = tr.. 
 }
@@ -41,7 +41,7 @@ function allCheckFnc() {
 function removeMemberFnc() {
 	let targetTr = document.querySelectorAll('#memberList tr');
 	for (let tr of targetTr) {
-		console.log(tr.children[5].children[0].checked);
+		//console.log(tr.children[5].children[0].checked);
 		if (tr.children[5].children[0].checked) {
 			tr.remove();
 		}
@@ -61,7 +61,7 @@ function modMemberFnc() {
 }// end of modMemberFnc
 
 function addMemberFnc() {
-	const id = document.getElementById('mid').value; //const : 상수
+	const id = document.getElementById('mid').value;
 	const name = document.getElementById('mname').value;
 	const phone = document.getElementById('mphone').value;
 	const point = document.getElementById('mpoint').value;
@@ -83,7 +83,6 @@ function addRow(member = { id, name, phone, point }) {
 	//tr 생성하고 td를 4개 생성
 	const tr = document.createElement('tr');
 	tr.addEventListener('click', showDetailFnc);
-
 
 	for (let prop in member) { //prop : id~poin 4가지 속성
 		const td = document.createElement('td');
