@@ -26,8 +26,18 @@
   <!--ex) 첫번째 *은 경로, 두번째 *은 열고자하는 파일 -->
   </definition>
   
-  <definition name="WILDCARD:member/*" extends="boardapp">
-   <put-attribute name="body" value="/WEB-INF/view/member/{1}.jsp" /> 
+  <definition name="adminapp" template="/WEB-INF/layout/adminTemp.jsp"> 
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="body" value="/WEB-INF/layout/admin_body.jsp" />
+    <put-attribute name="menu" value="/WEB-INF/layout/admin_menu.jsp" />
+  </definition>
+  
+  <definition name="WILDCARD:admin/*" extends="adminapp">
+   <put-attribute name="body" value="/WEB-INF/view/admin/{1}.jsp" /> <!-- admin 페이지 요청이 들어오면 adminapp 템플릿 사용 -->
+  </definition>
+  
+  <definition name="WILDCARD:*/*" extends="boardapp">
+   <put-attribute name="body" value="/WEB-INF/view/{1}/{2}.jsp" /> 
   </definition>
   
 </tiles-definitions>

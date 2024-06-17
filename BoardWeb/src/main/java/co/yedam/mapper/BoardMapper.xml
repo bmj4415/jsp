@@ -11,24 +11,25 @@
 		order by board_no
 	</select>
 
-	<select id="boardListPaging" parameterType="co.yedam.common.SearchVO"
+	<select id="boardListPaging"
+		parameterType="co.yedam.common.SearchVO"
 		resultType="co.yedam.vo.BoardVO">
 		select b.*
 		from (select rownum rn, a.*
 		from (select *
 		from board_tbl
 		<where>
-		<choose>
-		<when test="searchCondition == 'T'.toString()">
-		title like '%'||#{keyword}||'%'
-		</when>
-		<when test="searchCondition == 'W'.toString()">
-		writer like '%'||#{keyword}||'%'
-		</when>
-		<when test="searchCondition == 'TW'.toString()">
-		title like '%'||#{keyword}||'%' or writer like '%'||#{keyword}||'%'
-		</when>
-		</choose>
+			<choose>
+				<when test="searchCondition == 'T'.toString()">
+					title like '%'||#{keyword}||'%'
+				</when>
+				<when test="searchCondition == 'W'.toString()">
+					writer like '%'||#{keyword}||'%'
+				</when>
+				<when test="searchCondition == 'TW'.toString()">
+					title like '%'||#{keyword}||'%' or writer like '%'||#{keyword}||'%'
+				</when>
+			</choose>
 		</where>
 		order by board_no desc) a
 	  <![CDATA[
@@ -37,23 +38,23 @@
 		where b.rn > (#{page} - 1) * 5
 	</select>
 
-	<select id="getTotalCnt" parameterType="co.yedam.common.SearchVO"
-		resultType="int">
+	<select id="getTotalCnt"
+		parameterType="co.yedam.common.SearchVO" resultType="int">
 		select count(1)
 		from
 		board_tbl
 		<where>
-		<choose>
-		<when test="searchCondition == 'T'.toString()">
-		title like '%'||#{keyword}||'%'
-		</when>
-		<when test="searchCondition == 'W'.toString()">
-		writer like '%'||#{keyword}||'%'
-		</when>
-		<when test="searchCondition == 'TW'.toString()">
-		title like '%'||#{keyword}||'%' or writer like '%'||#{keyword}||'%'
-		</when>
-		</choose>
+			<choose>
+				<when test="searchCondition == 'T'.toString()">
+					title like '%'||#{keyword}||'%'
+				</when>
+				<when test="searchCondition == 'W'.toString()">
+					writer like '%'||#{keyword}||'%'
+				</when>
+				<when test="searchCondition == 'TW'.toString()">
+					title like '%'||#{keyword}||'%' or writer like '%'||#{keyword}||'%'
+				</when>
+			</choose>
 		</where>
 	</select>
 
@@ -68,7 +69,7 @@
 		from board_tbl
 		where board_no = #{bno}
 	</select>
-	
+
 	<insert id="insertBoard" parameterType="co.yedam.vo.BoardVO">
 		insert into board_tbl
 		(board_no, title, content, writer)
@@ -78,26 +79,28 @@
 
 	<delete id="deleteBoard" parameterType="co.yedam.vo.BoardVO">
 		delete board_tbl
-		where board_no = #{boardNo}
+		where
+		board_no = #{boardNo}
 	</delete>
 
 	<update id="updateBoard" parameterType="co.yedam.vo.BoardVO">
 		update board_tbl
-		set title=#{title},
-		    content=#{content}
+		set
+		title=#{title},
+		content=#{content}
 		where board_no = #{boardNo}
 	</update>
-	
-	<select id="selectMember" resultType="int">
-		select count(1) <!-- 집계 함수 -->
+
+	<select id="selectMember" resultType="co.yedam.vo.MemberVO">
+		select * <!-- 집계 함수 -->
 		from member_tbl
 		where user_id = #{id}
-		and   user_pw = #{pw}
+		and user_pw = #{pw}
 	</select>
-	
-	<insert id="insertMember" parameterType="int">
-		 insert into member_tbl (user_id, user_pw, user_name)
-		 values(#{id}, #{pw}, #{name})
+
+	<insert id="insertMember">
+		insert into member_tbl (user_id, user_pw, user_name)
+		values(#{id}, #{pw}, #{name})
 	</insert>
 
 </mapper>

@@ -15,7 +15,7 @@
         </c:otherwise>
         </c:choose>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="joinForm.do">회원가입</a>
-        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
+        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="script.do">자바스크립트</a>
         <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
     </div>
 </div>
