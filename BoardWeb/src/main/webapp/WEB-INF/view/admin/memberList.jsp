@@ -3,6 +3,7 @@
 <!-- memberList.jsp -->
 <h3>회원목록(관리자용)</h3>
 
+<<<<<<< HEAD
 <table class="table">
 	<thead>
 		<tr>
@@ -25,3 +26,5 @@
 		</c:forEach>
 	</tbody>
 </table>
+=======
+>>>>>>> branch 'master' of https://github.com/bmj4415/jsp.git
