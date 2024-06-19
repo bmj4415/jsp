@@ -62,13 +62,14 @@
 			</tr>
 		<tbody id="memberList"></tbody>
 	</table>
-
+</div>
 	<select id="selectMonth">
 		<option value="5">5월</option>
 		<option value="6">6월</option>
 		<option value="7">7월</option>
 	</select>
-</div>
+
+<div id="Emp">
 
 <table class="table">
 	<tr>
@@ -104,7 +105,7 @@
 	</thead>
 	<tbody id="list"></tbody>
 </table>
-
+</div>
 <div id="show"></div>
 <script src="js/data.js"></script>
 <script src="js/calendar.js"></script>
