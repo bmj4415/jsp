@@ -20,7 +20,11 @@ public interface BoardMapper {
 	//회원 아이디, 회원 비밀번호
 	
 	MemberVO selectMember(@Param("id") String id, @Param("pw") String pw); //값이 여러개일때
-	int insertMember(@Param("id") String id, @Param("pw") String pw, @Param("name") String name);
 	
-	
+	//Ajax 연습
+	List<MemberVO> memberList();
+	int insertMemberAjax(MemberVO mvo);
+	int selectMemberAjax(String id);//id값만 넘겨주면 되기 때문에 키값은 하나
+	int delMemberAjax(String id);
+	int modifyAjax(String id);
 }

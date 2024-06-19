@@ -114,7 +114,7 @@ function addRow(member = { id, name, phone, point }) {
 function removeTrElement(e) {
 	console.log('btn', e);
 	e.stopPropagation(); //상위요소로 
-	console(this.parentElement.parentElement.remove());
+	this.parentElement.parentElement.remove();
 }
 
 

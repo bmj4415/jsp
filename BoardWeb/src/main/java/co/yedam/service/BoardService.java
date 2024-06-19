@@ -21,9 +21,10 @@ public interface BoardService {
 	
 	//checkMember(id, pw)
 	MemberVO checkMember(String id, String pw);
-	boolean insertMember(String id, String pw, String name);
 	
-	
-	
-	
+	List<MemberVO> memberList();
+	boolean addMemberAjax(MemberVO mvo);
+	boolean checkMemberId(String id); //문자열로 사용자 아이디를 넘겨주면
+	boolean delMemberAjax(String id);
+	boolean modifyAjax(String id);
 }
