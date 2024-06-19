@@ -112,7 +112,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
 				<th>비밀번호</th>
 				<th>권한</th>
 				<th>삭제</th>
-				<th><input type="checkbox"></th>
 			</tr>
 		</thead>
 		<tbody id="list"></tbody>
@@ -130,7 +129,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     </div>
     <div class="modal-body">
     <input type="hidden" id="modify_id">
-      <p>이름 : <input type="text" id="modify_name"></p>
+      <p>이   름 : <input type="text" id="modify_name"></p>
       <p>비밀번호 : <input type="text" id="modify_pass"></p>
       <p><button id="modBtn">수정</button></p>
     </div>
@@ -160,6 +159,5 @@ if (event.target == modal) {
 }
 }
 </script>
-
 
 <script src="js/ajax3.js"></script>

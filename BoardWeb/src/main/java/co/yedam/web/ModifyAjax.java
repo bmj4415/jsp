@@ -14,7 +14,7 @@ public class ModifyAjax implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String id = req.getParameter("id");
+		String id = req.getParameter("id");// id 조회
 
 		BoardService svc = new BoardServiceImpl();
 		if (svc.modifyAjax(id)) {
@@ -22,7 +22,5 @@ public class ModifyAjax implements Control {
 		} else {
 			resp.getWriter().print("{\"retCode\":\"NG\"}");
 		}
-
 	}
-
 }

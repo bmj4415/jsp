@@ -58,54 +58,54 @@
 				<th>연락처</th>
 				<th>포인트</th>
 				<th>삭제</th>
-				
+
 				<th><input type="checkbox"></th>
 			</tr>
 		<tbody id="memberList"></tbody>
 	</table>
 </div>
-	<select id="selectMonth">
-		<option value="5">5월</option>
-		<option value="6">6월</option>
-		<option value="7">7월</option>
-	</select>
+<select id="selectMonth">
+	<option value="5">5월</option>
+	<option value="6">6월</option>
+	<option value="7">7월</option>
+</select>
 
 <div id="Emp">
 
-<table class="table">
-	<tr>
-		<th>사번</th>
-		<td><input id="mid"></td>
-	</tr>
-	<tr>
-		<th>사원명</th>
-		<td><input id="mname"></td>
-	</tr>
-	<tr>
-		<th>이메일</th>
-		<td><input id="memail"></td>
-	</tr>
-	<tr>
-		<th>급여</th>
-		<td><input id="msalary"></td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<button id="addBtn">추가</button>
-		</td>
-	</tr>
-</table>
-<table class="table">
-	<thead>
+	<table class="table">
 		<tr>
 			<th>사번</th>
-			<th>이름(FirstName)</th>
-			<th>이메일</th>
-			<th>급여</th>
+			<td><input id="mid"></td>
 		</tr>
-	</thead>
-	<tbody id="list"></tbody>
-</table>
+		<tr>
+			<th>사원명</th>
+			<td><input id="mname"></td>
+		</tr>
+		<tr>
+			<th>이메일</th>
+			<td><input id="memail"></td>
+		</tr>
+		<tr>
+			<th>급여</th>
+			<td><input id="msalary"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<button id="addBtn">추가</button>
+			</td>
+		</tr>
+	</table>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>사번</th>
+				<th>이름(FirstName)</th>
+				<th>이메일</th>
+				<th>급여</th>
+			</tr>
+		</thead>
+		<tbody id="list"></tbody>
+	</table>
 </div>
 <div id="show"></div>
 <script src="js/data.js"></script>
