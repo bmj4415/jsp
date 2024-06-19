@@ -58,6 +58,7 @@
 				<th>연락처</th>
 				<th>포인트</th>
 				<th>삭제</th>
+				
 				<th><input type="checkbox"></th>
 			</tr>
 		<tbody id="memberList"></tbody>
@@ -107,4 +108,4 @@
 
 <div id="show"></div>
 <script src="js/data.js"></script>
-<script src="js/calendar.js"></script>
+<script src="js/dom1.js"></script>

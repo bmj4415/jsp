@@ -6,7 +6,9 @@ import org.apache.ibatis.session.SqlSession;
 
 import co.yedam.common.DataSource;
 import co.yedam.mapper.StudentMapper;
+import co.yedam.vo.MemberVO;
 import co.yedam.vo.Student;
+import co.yedam.web.MemberList;
 
 public class StudentServiceImpl implements StudentService {
 	
@@ -28,4 +30,5 @@ public class StudentServiceImpl implements StudentService {
 		return mapper.updateStudent(std) == 1; //1건이 수정되면 true, 아니면 false
 	}
 
+	
 }

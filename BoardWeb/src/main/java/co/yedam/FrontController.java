@@ -13,16 +13,20 @@ import javax.servlet.http.HttpServletResponse;
 import co.yedam.common.Control;
 import co.yedam.web.AddForm;
 import co.yedam.web.AddStudent;
+import co.yedam.web.AjaxForm;
 import co.yedam.web.BoardForm;
 import co.yedam.web.BoardList;
+import co.yedam.web.CheckIdAjax;
 import co.yedam.web.Getboard;
-import co.yedam.web.JoinControl;
-import co.yedam.web.JoinForm;
 import co.yedam.web.LogOutControl;
 import co.yedam.web.LoginControl;
 import co.yedam.web.LoginForm;
 import co.yedam.web.MainControl;
+import co.yedam.web.MemberAddAjax;
+import co.yedam.web.MemberAjax;
+import co.yedam.web.MemberDelAjax;
 import co.yedam.web.MemberList;
+import co.yedam.web.ModifyAjax;
 import co.yedam.web.ModifyBoard;
 import co.yedam.web.ModifyForm;
 import co.yedam.web.ProductContrl;
@@ -76,9 +80,9 @@ public class FrontController extends HttpServlet { // HttpServlet을 상속받�
 			//로그아웃 기능
 			map.put("/logout.do", new LogOutControl());
 			
-			//회원가입
-			map.put("/joinForm.do", new JoinForm());//회원가입 화면
-			map.put("/join.do", new JoinControl());//회원가입 기능
+//			//회원가입
+//			map.put("/joinForm.do", new JoinForm());//회원가입 화면
+//			map.put("/join.do", new JoinControl());//회원가입 기능
 			
 			//회원목록(관리자 템플릿)
 			map.put("/memberList.do", new MemberList());
@@ -86,6 +90,13 @@ public class FrontController extends HttpServlet { // HttpServlet을 상속받�
 			//자바스크립트 연습용 페이지
 			map.put("/script.do", new ScriptForm());
 			
+			//Ajax연습
+			map.put("/ajax.do", new AjaxForm());
+			map.put("/membersAjax.do", new MemberAjax());
+			map.put("/addAjax.do", new MemberAddAjax());
+			map.put("/checkIdAjax.do", new CheckIdAjax());
+			map.put("/delAjax.do", new MemberDelAjax());
+			map.put("/modifyAjax.do", new ModifyAjax());
 		}//
 	
 	

@@ -27,7 +27,8 @@
 					writer like '%'||#{keyword}||'%'
 				</when>
 				<when test="searchCondition == 'TW'.toString()">
-					title like '%'||#{keyword}||'%' or writer like '%'||#{keyword}||'%'
+					title like '%'||#{keyword}||'%' or writer like
+					'%'||#{keyword}||'%'
 				</when>
 			</choose>
 		</where>
@@ -52,7 +53,8 @@
 					writer like '%'||#{keyword}||'%'
 				</when>
 				<when test="searchCondition == 'TW'.toString()">
-					title like '%'||#{keyword}||'%' or writer like '%'||#{keyword}||'%'
+					title like '%'||#{keyword}||'%' or writer like
+					'%'||#{keyword}||'%'
 				</when>
 			</choose>
 		</where>
@@ -98,10 +100,41 @@
 		and user_pw = #{pw}
 	</select>
 
-	<insert id="insertMember">
-		insert into member_tbl (user_id, user_pw, user_name)
-		values(#{id}, #{pw}, #{name})
+	<select id="memberList" resultType="co.yedam.vo.MemberVO">
+		select *
+		from member_tbl
+	</select>
+
+	<insert id="insertMemberAjax"
+		parameterType="co.yedam.vo.MemberVO">
+		insert into member_tbl (user_id, user_pw, user_name,
+		responsibility)
+		values(#{userId}, #{userPw}, #{userName},
+		#{responsibility})
 	</insert>
+
+	<select id="selectMemberAjax" parameterType="string">
+		select count(1)
+		from
+		member_tbl
+		where user_id = #{id}
+	</select>
+
+	<delete id="delMemberAjax" parameterType="string">
+		delete member_tbl
+		where
+		user_id = #{id}
+	</delete>
+
+	<update id="modifyAjax" parameterType="string">
+		update member_tbl
+		set
+		user_name=#{name},
+		user_pw=#{pw}
+		where user_id =
+		#{id}
+	</update>
+
 
 </mapper>
 
