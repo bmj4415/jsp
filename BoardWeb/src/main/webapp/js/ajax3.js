@@ -78,11 +78,12 @@ document.getElementById('modBtn').addEventListener('click', function() {
 	modifyAjax.open('get', 'modifyAjax.do?id='+result);
 	modifyAjax.send();
 	modifyAjax.onload = function() {
-		let data = JSON.parse(this.responseText);
-		console.log(data);
-		if (data.retCode == 'OK') {
-		data.children[1].innerHTML = name;
-		data.children[2].innerHTML = pass;
+		//let modi = JSON.parse(this.responseText);
+		let modi = document.getElementById(id);
+		console.log(modi);
+		if (modi.retCode == 'OK') {
+		modi.children[1].innerHTML = name;
+		modi.children[2].innerHTML = pass;
 	} else {
 		alert('수정실패');
 	}
