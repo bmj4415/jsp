@@ -71,17 +71,26 @@ document.getElementById('modBtn').addEventListener('click', function() {
 	//ajax 생성
 	//정상적으로 정보가 업데이트 되면 화면 수정
 	//수정이 안됐으면 화면수정 x
-	
-	const modifyAjax = new XMLHttpRequest
-	
-	let targetTr = document.getElementById(id);
-	//let result = this.dataset.modify;//수정작업의 retCode 결과가 들어있는 것
-	if (modi.retCode == 'OK') {
-		targetTr.children[1].innerHTML = name;
-		targetTr.children[2].innerHTML = pass;
+
+	const modifyAjax = new XMLHttpRequest();
+	let result = '';
+	//console.log(this.value);
+	modifyAjax.open('get', 'modifyAjax.do?id='+result);
+	modifyAjax.send();
+	modifyAjax.onload = function() {
+		let data = JSON.parse(this.responseText);
+		console.log(data);
+		if (data.retCode == 'OK') {
+		data.children[1].innerHTML = name;
+		data.children[2].innerHTML = pass;
 	} else {
 		alert('수정실패');
 	}
+	}
+	
+	
+	
+	
 
 	//모달창 닫기
 	document.getElementById('myModal').style.display = 'none';
@@ -117,6 +126,7 @@ document.getElementById('addBtn').addEventListener('click', function() {
 
 document.getElementById('uid').addEventListener('change', function() {
 	let checkId = this.value;
+	console.log(this.value);
 	const checkAjax = new XMLHttpRequest();
 	checkAjax.open('get', 'checkIdAjax.do?id=' + checkId);
 	checkAjax.send();
