@@ -79,4 +79,9 @@ public class BoardServiceImpl implements BoardService {
 	public boolean modifyAjax(String id) {
 		return mapper.modifyAjax(id) == 1;
 	}
+	@Override
+	public boolean insertMember(String id, String pw, String name) {
+		return mapper.insertMember(id, pw, name) == 1;
+	}
+	
 }

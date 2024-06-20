@@ -71,11 +71,9 @@ document.getElementById('modBtn').addEventListener('click', function() {
 	//ajax 생성
 	//정상적으로 정보가 업데이트 되면 화면 수정
 	//수정이 안됐으면 화면수정 x
-	const mfields = ['modify_id', 'modify_name', 'modify_pass'];
-	let modi = mfields[modify_id];
 	
-	//let modbtn = document.createElement('modify_id');
-	//modbtn.setAttribute('data-modify', modify_id);
+	const modifyAjax = new XMLHttpRequest
+	
 	let targetTr = document.getElementById(id);
 	//let result = this.dataset.modify;//수정작업의 retCode 결과가 들어있는 것
 	if (modi.retCode == 'OK') {

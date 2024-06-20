@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:forward page="../public/header.jsp">
 
 <h3>삭제화면</h3>
 <form action="removeBoard.do">
@@ -32,4 +31,3 @@
 		</tr>
 	</table>
 </form>
-<jsp:forward page="../public/footer.jsp">

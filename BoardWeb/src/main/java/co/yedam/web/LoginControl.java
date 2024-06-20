@@ -33,12 +33,12 @@ public class LoginControl implements Control {
 				resp.sendRedirect("main.do");
 			} else if (mvo.getResponsibility().equals("Admin")) {
 				resp.sendRedirect("memberList.do");
-			} else {
-				// 로그인 실패
-				resp.sendRedirect("loginForm.do");
+			} 
 
-			}
-
+		} else {
+			// 로그인 실패
+			resp.sendRedirect("loginForm.do");
+			
 		}
 	}
 }

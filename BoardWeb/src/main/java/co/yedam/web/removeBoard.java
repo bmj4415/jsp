@@ -31,7 +31,7 @@ public class removeBoard implements Control {
 		if(svc.removeBoard(bvo.getBoardNo())) {
 			resp.sendRedirect("boardList.do");
 		} else {
-			req.getRequestDispatcher("WEB-INF/view/removeBoardForm.jsp").forward(req, resp);
+			req.getRequestDispatcher("WEB-INF/view/member/removeBoardForm.jsp").forward(req, resp);
 		}
 	}
 

@@ -99,6 +99,11 @@
 		where user_id = #{id}
 		and user_pw = #{pw}
 	</select>
+	
+	<insert id="insertMember">
+		 insert into member_tbl (user_id, user_pw, user_name)
+		 values(#{id}, #{pw}, #{name})
+	</insert>
 
 	<select id="memberList" resultType="co.yedam.vo.MemberVO">
 		select *
