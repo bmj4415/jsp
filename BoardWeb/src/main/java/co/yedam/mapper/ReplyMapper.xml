@@ -39,6 +39,22 @@
 	where reply_no = #{replyNo}
 	</delete>
 
+	<select id="selectListPaging">
+	select b.*
+	from(select /*+index_(r reply_pk)*/ rownum rn, r.*
+     	 from reply_tbl r
+     	 where board_no = #{boardNo}) b
+    <![CDATA[
+	where b.rn <= (#{page}) * 5
+    ]]> 	 
+	and   b.rn > (#{page} -1) * 5
+	</select>
+	
+	<select id="selectReplyCnt" parameterType="int">
+	  select count(1)
+	  from reply_tbl
+	  where board_no = #{bno}
+	</select>
 
 </mapper>
 

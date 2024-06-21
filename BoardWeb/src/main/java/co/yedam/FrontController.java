@@ -33,11 +33,13 @@ import co.yedam.web.ModifyAjax;
 import co.yedam.web.ModifyBoard;
 import co.yedam.web.ModifyForm;
 import co.yedam.web.ProductContrl;
+import co.yedam.web.PublicData;
 import co.yedam.web.RemoveForm;
 import co.yedam.web.RemoveReply;
 import co.yedam.web.ReplyList;
 import co.yedam.web.ScriptForm;
 import co.yedam.web.StudentForm;
+import co.yedam.web.TotalCnt;
 import co.yedam.web.removeBoard;
 
 //front controller => 요청url(*.do(메인.do) => 실행컨트롤 매칭
@@ -107,8 +109,13 @@ public class FrontController extends HttpServlet { // HttpServlet을 상속받�
 			map.put("/replyListJson.do", new ReplyList()); //댓글 목록
 			map.put("/removeReply.do", new RemoveReply()); //댓글 삭제
 			map.put("/addReply.do", new AddReply()); //댓글 등록
+			map.put("/replyTotalCnt.do", new TotalCnt());
+			
+			//공공데이터
+			map.put("/publicData.do", new PublicData());
 			
 			
+		
 			
 			
 		}//

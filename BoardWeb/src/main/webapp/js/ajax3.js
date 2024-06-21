@@ -23,8 +23,9 @@ function makeRow(obj = {}) {
 	tr.addEventListener('dblclick', function(e) {
 		document.getElementById('myModal').style.display = 'block';
 		//선택된 사용자의 이름, 비밀번호를 모달에 출력
-		console.log(e, this);
+		//console.log(e, this);
 		document.getElementById('modify_name').value = this.children[1].innerHTML;
+		console.log(this, "dddddddd"); //tr user04
 		document.getElementById('modify_pass').value = this.children[2].innerHTML;
 		document.getElementById('modify_id').value = this.children[0].innerHTML;
 	})
@@ -64,34 +65,31 @@ function removeMemberFnc(e) {
 
 //수정이벤트
 document.getElementById('modBtn').addEventListener('click', function() {
-	let id = document.getElementById('modify_id').value;
-	let name = document.getElementById('modify_name').value;
-	let pass = document.getElementById('modify_pass').value;
+	//let id = document.getElementById('modify_id').value;
+	//let name = document.getElementById('modify_name').value;
+	//let pw = document.getElementById('modify_pass').value;
 
 	//ajax 생성
 	//정상적으로 정보가 업데이트 되면 화면 수정
 	//수정이 안됐으면 화면수정 x
 
 	const modifyAjax = new XMLHttpRequest();
-	let result = '';
-	//console.log(this.value);
-	modifyAjax.open('get', 'modifyAjax.do?id='+result);
+	let url = 'modifyAjax.do?id=' + id + '&name=' + name + '&pw=' + pw;
+	modifyAjax.open('get', url);
 	modifyAjax.send();
 	modifyAjax.onload = function() {
-		//let modi = JSON.parse(this.responseText);
-		let modi = document.getElementById(id);
-		console.log(modi);
+		let modi = JSON.parse(modifyAjax.responseText);
+		//console.log(modi, "modi"); //선택된 유저의 id
+		//console.dir(modi.children[1].innerHTML);
+		console.log(this,'이거이거');
 		if (modi.retCode == 'OK') {
-		modi.children[1].innerHTML = name;
-		modi.children[2].innerHTML = pass;
-	} else {
-		alert('수정실패');
+			this.children[0].innerHTML = document.getElementById('modify_id').value;
+			this.children[1].innerHTML = document.getElementById('modify_name').value;
+			this.children[2].innerHTML = document.getElementById('modify_pass').value;
+		} else {
+			alert('수정실패');
+		}
 	}
-	}
-	
-	
-	
-	
 
 	//모달창 닫기
 	document.getElementById('myModal').style.display = 'none';
@@ -112,6 +110,7 @@ document.getElementById('addBtn').addEventListener('click', function() {
 	addAjax.send();//페이지 요청
 	addAjax.onload = function() {
 		let result = JSON.parse(addAjax.responseText);
+		console.log(result);
 		if (result.retCode == 'OK') {
 			let newMem = { userId: id, userName: nm, userPw: pw, responsibility: auth }
 			alert(result.retMsg);

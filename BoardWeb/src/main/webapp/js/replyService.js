@@ -6,9 +6,9 @@
 
 const svc = {
 	//목록
-	replyList(bno = 1, successCall) { //(번호(생략가능), 실행할 함수)
+	replyList(param = {bno, page}, successCall) { //(넘겨주는 파라미터값(변수형식인 이유는 페이지 넘버와 페이지를 다 넘겨주려고), 실행할 함수)
 		const xhtp = new XMLHttpRequest();
-		xhtp.open('get', 'replyListJson.do?bno=' + bno); //
+		xhtp.open('get', 'replyListJson.do?bno=' + param.bno + '&page=' + param.page); //
 		xhtp.send(); //아작스가 요청
 		xhtp.onload = successCall; //아작스가 정상적으로 실행되고 나면 결과를 보여줄 이벤트(이벤트가 실행될 때 실행될 함수)
 	},
@@ -32,5 +32,12 @@ const svc = {
 		xhtp.send();
 		xhtp.onload = successCall;
 
+	},
+	
+	replyTotalCnt(bno = 1, successCall) {
+		const xhtp = new XMLHttpRequest();
+		xhtp.open('get', 'replyTotalCnt.do?bno=' + bno);
+		xhtp.send();
+		xhtp.onload = successCall;
 	}
 }

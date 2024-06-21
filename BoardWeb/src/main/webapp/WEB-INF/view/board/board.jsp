@@ -24,6 +24,37 @@ div.reply span {
 }
 </style>
 
+<!-- 페이지 디자인 때문에 넣음 -->
+<style> 
+.center {
+	text-align: center;
+}
+
+.pagination {
+	display: inline-block;
+}
+
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+	margin: 0 4px;
+}
+
+.pagination a.active {
+	background-color: #4CAF50;
+	color: white;
+	border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
+</style>
+
 <h3>상세화면</h3>
 <form name="myFrm" action="removeForm.do">
 	<input type="hidden" value="${board.boardNo}" name="bno"> <input
@@ -73,40 +104,43 @@ div.reply span {
 <!-- 댓글관련 시작 -->
 <div class="container reply">
 
-<!-- 댓글 작성하는 창 -->
-<div class="header">
-<input class="col-sm-8" id="reply">
-<button class="col-sm-3" id="addReply">등록</button>
-</div>
+	<!-- 댓글 작성하는 창 -->
+	<div class="header">
+		<input class="col-sm-8" id="reply">
+		<button class="col-sm-3" id="addReply">등록</button>
+	</div>
 
-<!-- 댓글 목록보기 -->
+	<!-- 댓글 목록보기 -->
 	<div class="content">
 		<ul>
-			<li>
-			<span class="col-sm-1">글번호</span>
-			<span class="col-sm-4">글내용</span>
-			<span class="col-sm-2">작성자</span>
-			<span class="col-sm-3">작성일시</span>
-			<span class="col-sm-1">삭제</span>
-			
-			</li>
+			<li><span class="col-sm-1">글번호</span> <span class="col-sm-4">글내용</span>
+				<span class="col-sm-2">작성자</span> <span class="col-sm-3">작성일시</span>
+				<span class="col-sm-1">삭제</span></li>
 			<li><hr /></li>
-			<li style="display: none">
-			<span class="col-sm-1">3</span>
-			<span class="col-sm-4">글을 잘 봤습니다</span>
-			<span class="col-sm-2">user01</span>
-			<span class="col-sm-3">2024-05-08 13:22:34</span>
-			<span class="col-sm-1"><button onclick="deleteRow(event)">삭제</button></span>
+			<li style="display: none"><span class="col-sm-1">3</span> <span
+				class="col-sm-4">글을 잘 봤습니다</span> <span class="col-sm-2">user01</span>
+				<span class="col-sm-3">2024-05-08 13:22:34</span> <span
+				class="col-sm-1"><button onclick="deleteRow(event)">삭제</button></span>
 			</li>
 		</ul>
 	</div>
-
+	<div class="footer">
+		<div class="center">
+			<div class="pagination">
+				<a href="#">1</a>
+				<a href="#" class="active">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+			</div>
+		</div>
+	</div>
+	
 </div>
 <!-- 댓글관련 끝 -->
 
 <script>
-const bno = "${board.boardNo}";
-const replyer = "${logId}";//로그인해야 댓글을 작성할 수 있으므로
+	const bno = "${board.boardNo}";
+	const replyer = "${logId}";//로그인해야 댓글을 작성할 수 있으므로
 
 	document.querySelector('button.btn-warning').addEventListener('click',
 			function(e) {
