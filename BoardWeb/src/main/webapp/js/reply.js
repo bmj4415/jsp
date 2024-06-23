@@ -19,6 +19,7 @@ document.querySelectorAll('div.pagination a').forEach(item => { //item = a태그
 });
 
 
+
 //댓글 건수를 활용해서 건수만큼 페이징을 계산하고 해당 목록을 출력
 
 function makePagingFnc() {
@@ -26,6 +27,19 @@ function makePagingFnc() {
 }
 
 let pagination = document.querySelector('div.pagination');
+
+//건수를 확인하고 페이징을 계산할 함수 createPageingList 선언
+
+function createPageingList() {
+	let totalCnt = this. responseText;
+	console.log(this, 'dddddd');
+};
+
+
+
+
+
+
 
 //건수를 확인하고 페이징을 계산할 함수 생성
 function createPageingList() {

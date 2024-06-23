@@ -2,15 +2,19 @@
 	pageEncoding="UTF-8"%>
 <!-- publicData.jsp -->
 <h3>공공데이터 연습</h3>
+
+주소입력 :
+<input type="text" id="searchBox" name="keyword" class="col-sm-6"
+	placeholder="ex) '동구' 입력 후 검색버튼을 누르면 동구를 포함한 지역이 검색됩니다">
+
+<button id="scBtn" style="disply:none;">검색</button>
+
+<!-- select 옵션을 달아서 시/도 리스트를 출력함 -->
+<select id="searchList">
+</select>
+
 <table class="table">
 	<thead>
-		<tr>
-			<th>주소입력 :</th>
-			<div id="search">
-				<th><input type="text" name="keyword" class="form-control"></th>
-				<th><button id="scBtn">검색</button></th>
-			</div>
-		</tr>
 		<tr>
 			<th>센터id</th>
 			<th>센터명</th>
