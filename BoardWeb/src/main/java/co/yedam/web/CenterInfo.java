@@ -26,7 +26,7 @@ public class CenterInfo implements Control {
 		// » 2.16.1)
 
 		ServletInputStream sis = req.getInputStream(); // stream:자바에서 데이터를 주고받을 때 쓰이는 통로
-		String json = StreamUtils.copyToString(sis, StandardCharsets.UTF_8);// 읽어드린 파일 : sis, 한글이 포함되어 있으면 utf_8 : 속성
+		String json = StreamUtils.copyToString(sis, StandardCharsets.UTF_8);// 읽어들인 파일 : sis, 한글이 포함되어 있으면 utf_8 : 속성
 		System.out.println(json);
 		// 문자열을 다시 객체로 변환
 		ObjectMapper objectMapper = new ObjectMapper();

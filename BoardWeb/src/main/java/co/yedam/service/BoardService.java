@@ -22,7 +22,6 @@ public interface BoardService {
 	
 	//checkMember(id, pw)
 	MemberVO checkMember(String id, String pw);
-	boolean insertMember(String id, String pw, String name);
 	
 	//파일첨부 회원등록
 	boolean addMemberImage(MemberVO mvo);

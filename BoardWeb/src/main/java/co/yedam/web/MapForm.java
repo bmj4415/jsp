@@ -12,7 +12,7 @@ public class MapForm implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("WEB-INF/view/script/chart.jsp").forward(req, resp);
+		req.getRequestDispatcher("WEB-INF/view/script/map.jsp").forward(req, resp);
 	}
 
 }
