@@ -13,6 +13,8 @@
 <select id="searchList">
 </select>
 
+<button id="centerDB">센터DB생성</button>
+
 <table class="table">
 	<thead>
 		<tr>

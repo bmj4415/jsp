@@ -17,6 +17,9 @@ import co.yedam.web.AddStudent;
 import co.yedam.web.AjaxForm;
 import co.yedam.web.BoardForm;
 import co.yedam.web.BoardList;
+import co.yedam.web.CenterChart;
+import co.yedam.web.CenterInfo;
+import co.yedam.web.ChartForm;
 import co.yedam.web.CheckIdAjax;
 import co.yedam.web.Getboard;
 import co.yedam.web.JoinControl;
@@ -25,6 +28,7 @@ import co.yedam.web.LogOutControl;
 import co.yedam.web.LoginControl;
 import co.yedam.web.LoginForm;
 import co.yedam.web.MainControl;
+import co.yedam.web.MapForm;
 import co.yedam.web.MemberAddAjax;
 import co.yedam.web.MemberAjax;
 import co.yedam.web.MemberDelAjax;
@@ -114,8 +118,16 @@ public class FrontController extends HttpServlet { // HttpServlet을 상속받�
 			//공공데이터
 			map.put("/publicData.do", new PublicData());
 			
+			//지도api
+			map.put("/map.do", new MapForm());
 			
-		
+			//json문자열을 받아 DB에 삽입하는 과정
+			map.put("/centerInfo.do", new CenterInfo());
+			
+			//센터차트
+			map.put("/chartForm.do", new ChartForm());
+			map.put("/centerChart.do", new CenterChart()); //기능
+				
 			
 			
 		}//

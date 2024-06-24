@@ -101,8 +101,8 @@
 	</select>
 	
 	<insert id="insertMember">
-		 insert into member_tbl (user_id, user_pw, user_name)
-		 values(#{id}, #{pw}, #{name})
+		 insert into member_tbl (user_id, user_pw, user_name, image)
+		 values(#{userId}, #{userPw}, #{userName}, #{image} )
 	</insert>
 
 	<select id="memberList" resultType="co.yedam.vo.MemberVO">

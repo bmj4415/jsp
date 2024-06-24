@@ -84,4 +84,8 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.insertMember(id, pw, name) == 1;
 	}
 	
+	@Override
+	public boolean addMemberImage(MemberVO mvo) {
+		return mapper.insertMember(mvo) == 1; 
+	}
 }

@@ -24,6 +24,10 @@ public interface BoardService {
 	MemberVO checkMember(String id, String pw);
 	boolean insertMember(String id, String pw, String name);
 	
+	//파일첨부 회원등록
+	boolean addMemberImage(MemberVO mvo);
+	
+	
 	List<MemberVO> memberList();
 	boolean addMemberAjax(MemberVO mvo);
 	boolean checkMemberId(String id); //문자열로 사용자 아이디를 넘겨주면

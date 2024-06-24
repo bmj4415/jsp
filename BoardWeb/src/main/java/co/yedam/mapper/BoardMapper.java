@@ -28,4 +28,5 @@ public interface BoardMapper {
 	int selectMemberAjax(String id);//id값만 넘겨주면 되기 때문에 키값은 하나
 	int delMemberAjax(String id);
 	int modifyAjax(String id);
+	int insertMember(MemberVO mvo);
 }

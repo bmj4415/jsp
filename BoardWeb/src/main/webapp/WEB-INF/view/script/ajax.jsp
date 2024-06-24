@@ -98,6 +98,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 			</select></td>
 		</tr>
 		<tr>
+		<th>파일</th><td>
+		</tr>
+		<tr>
 			<td colspan="2"><button id="addBtn">등록</button></td>
 		</tr>
 	</table>

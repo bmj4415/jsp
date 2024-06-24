@@ -55,6 +55,19 @@
 	  from reply_tbl
 	  where board_no = #{bno}
 	</select>
+	
+	<insert id="insertCenter">
+	insert into center_tbl(id, center_name, sido, phone_number, address)
+	<foreach collection="array" item="center" open=" select " close=" from dual " separator=" from dual union all select "> <!-- open/close/separator : 반복문 시작/끝/구분자 , 반복되는 문구만 입력(반복문) -->
+	  #{center.id}, #{center.centerName}, #{center.sido}, #{center.phoneNumber}, #{center.address} <!-- center. ==> center가 가지고있는~ -->
+	</foreach>
+	</insert>
+	
+	<select id="centerBysido" resultType="map">
+	select sido as "sido", count(1) as "cnt"
+	from center_tbl
+	group by sido
+	</select>
 
 </mapper>
 

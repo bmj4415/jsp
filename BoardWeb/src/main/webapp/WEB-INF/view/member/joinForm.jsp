@@ -5,7 +5,7 @@
 
 <h3>회원가입 화면(joinForm.jsp)</h3>
 
-<form action="join.do">
+<form action="join.do" method="post" enctype="multipart/form-data"><!-- multipart/form-data : 파일을 전송하겠다--> 
 	<table class="table">
 		<tr>
 			<th>이름</th>
@@ -20,7 +20,12 @@
 			<td><input type="password" name="pw"></td>
 		</tr>
 		<tr>
+			<th>이미지</th>
+			<td><input type="file" name="myImage"></td>
+		</tr>
+		<tr>
 			<td colspan="2"><input type="submit" value="회원가입"></td>
 		</tr>
+		
 	</table>
 </form>
