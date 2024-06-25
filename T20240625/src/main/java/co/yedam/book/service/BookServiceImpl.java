@@ -30,8 +30,7 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public boolean addBook(BookVO bvo) {
-		// TODO Auto-generated method stub
-		return false;
+		return mapper.insertBook(bvo) == 1;
 	}
 
 	@Override

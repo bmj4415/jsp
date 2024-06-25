@@ -6,10 +6,22 @@
 <mapper namespace="co.yedam.book.mapper.BookMapper">
 
 	<select id="selectList" resultType="co.yedam.book.vo.BookVO">
-		select *
-		from tbl_books
+	select book_code,
+           book_title,
+           author,
+           company,
+           price
+	from tbl_books
 	</select>
+	
+	<insert id="insertBook" parameterType="co.yedam.book.vo.BookVO">
+	insert into tbl_books (book_code, book_title, author, company, price, create_date)
+    values (#{bookCode}, #{bookTitle}, #{author}, #{company}, #{price}, #{createDate})
+	</insert>
 
-
+	<delete id="deleteBook"  parameterType="co.yedam.book.vo.BookVO">
+	delete from tbl_books
+	where book_code = #{bookCode}
+	</delete>
 
 </mapper>

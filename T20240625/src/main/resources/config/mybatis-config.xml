@@ -8,6 +8,7 @@
   
   <settings>
     <setting name="mapUnderscoreToCamelCase" value="true"/>
+      <setting name="jdbcTypeForNull" value="NULL"/>
   </settings>
   
   <typeAliases>
@@ -28,6 +29,6 @@
 
   <mappers>
     <mapper resource="co/yedam/book/mapper/BookMapper.xml"/>
-  </mappers>
+</mappers>
 
 </configuration>
