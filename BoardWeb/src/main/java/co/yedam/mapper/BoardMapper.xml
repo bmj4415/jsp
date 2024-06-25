@@ -106,7 +106,10 @@
 	</insert>
 
 	<select id="memberList" resultType="co.yedam.vo.MemberVO">
-		select *
+		select user_id,
+			   user_name,
+			   responsibility,
+		       image
 		from member_tbl
 	</select>
 

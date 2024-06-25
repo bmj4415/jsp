@@ -26,27 +26,36 @@ public class JoinControl implements Control {
 		String savePath = req.getServletContext().getRealPath("images");
 		int maxSize = 1024 * 1024 * 5;
 		String encoding = "utf-8";
-		
+
 		MultipartRequest mr = new MultipartRequest(req, savePath, maxSize, encoding, new DefaultFileRenamePolicy());
 
 		String id = mr.getParameter("id");
 		String pw = mr.getParameter("pw");
 		String nm = mr.getParameter("name");
-		String img = mr.getFilesystemName("myImage"); //같은 파일이 있으면 바뀐 파일의 이름을 가져오는 메소드
+		String img = mr.getFilesystemName("myImage"); // 같은 파일이 있으면 바뀐 파일의 이름을 가져오는 메소드
 
 		MemberVO mvo = new MemberVO();
 		mvo.setUserId(id);
 		mvo.setUserPw(pw);
 		mvo.setUserName(nm);
 		mvo.setImage(img);
-		
+
 		BoardService svc = new BoardServiceImpl();
 		try {
-			if(svc.addMemberImage(mvo)) {
-				resp.sendRedirect("memberList.do");
+			if (svc.addMemberImage(mvo)) {
+				if (req.getMethod().equals("POST")) {
+					resp.sendRedirect("memberList.do");
+				} else if (req.getMethod().equals("PUT")) {
+					// {"retCode": "OK"}
+					resp.getWriter().print("{\"retCode\": \"OK\"}");
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			if (req.getMethod().equals("PUT")) {
+				// {"retCode": "NG"}
+				resp.getWriter().print("{\"retCode\": \"NG\"}");
+			}
 		}
 
 	}

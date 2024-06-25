@@ -8,32 +8,28 @@
 </head>
 <body>
 	<script>
-	async function promiseFunc() {
-		
-new Promise((resolve, reject) => { //async-await을 이용하여 바로 실행되지 않고 조금 있다가 실행?
-	setTimeout(function () { //setTimeout : 비동기함수이기 때문에 1초뒤에 바로 실행
-		resolve('OK');
-		//reject('Fail');
-	}, 1000);
-})
-.then(function(result) { //resolve 함수가 성공적으로 실행되었을 때 발생할 함수(setTime)
-	console.log(result);//OK가 출력
-})
-.catch(function (err) {
-	console.log('err : ', err);
-});
+	async function upload(formData) {
+		  try {
+		    const response = await fetch("https://example.com/profile/avatar", {
+		      method: "PUT",
+		      body: formData,
+		    });
+		    const result = await response.json();
+		    console.log("성공:", result);
+		  } catch (error) {
+		    console.error("실패:", error);
+		  }
+		}
 
-	}
-// promise.then(function(result) { //resolve 함수가 성공적으로 실행되었을 때 발생할 함수(setTime)
-// 	console.log(result);//OK가 출력
-// })
-// .catch(function (err) {
-// 	console.log(err);
-// });
-// 	}
-	
- 	promiseFunc();
-	
+		const formData = new FormData();
+		const fileField = document.querySelector('input[type="file"]');
+
+		formData.append("username", "abc123"); // id 
+		formData.append("pw", "abc123"); // pw
+		formData.append("avatar", fileField.files[0]);//첫번째 파일에 "avatar"
+		
+
+		upload(formData);
 
 </script>
 </body>
