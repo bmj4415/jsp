@@ -60,17 +60,16 @@ function makeRow(book = {}) {
 }
 
 function removeBookFnc(e) {
+	console.log(this);
 	let did = this.dataset.delid;//data-delId
-	did = e.target.parentElement.parentElement.children[0].innerText;
 	let tr = document.getElementById(did);
-
 
 	const removeBook = new XMLHttpRequest();
 	removeBook.open('get', 'removeBook.do?id=' + did);
 	removeBook.send();
 	removeBook.onload = function() {
 		let result = JSON.parse(removeBook.responseText);
-		//console.log(result);
+		console.log(result);
 		if (result.retCode == 'OK') {
 			alert('정상삭제');
 			tr.remove();

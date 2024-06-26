@@ -19,9 +19,9 @@
     values (#{bookCode}, #{bookTitle}, #{author}, #{company}, #{price}, #{createDate})
 	</insert>
 
-	<delete id="deleteBook"  parameterType="co.yedam.book.vo.BookVO">
+	<delete id="deleteBook">
 	delete from tbl_books
-	where book_code = #{bookCode}
+	where book_code = #{bcode}
 	</delete>
 
 </mapper>
