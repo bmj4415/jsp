@@ -128,7 +128,7 @@ public class FrontController extends HttpServlet { // HttpServlet을 상속받�
 			map.put("/chartForm.do", new ChartForm());
 			map.put("/centerChart.do", new CenterChart()); //기능
 				
-			
+			//수정수정
 			
 		}//
 	
